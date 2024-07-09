@@ -72,7 +72,7 @@ class GetFromInlineValidatorBase extends Strategy
         $rules = [];
         $customParameterData = [];
         foreach ($validationRules->items as $item) {
-            /** @var Node\Expr\ArrayItem $item */
+            /** @var Node\ArrayItem $item */
             if (!$item->key instanceof Node\Scalar\String_) {
                 continue;
             }
@@ -86,7 +86,7 @@ class GetFromInlineValidatorBase extends Strategy
             } else if ($item->value instanceof Node\Expr\Array_) {
                 $rulesList = [];
                 foreach ($item->value->items as $arrayItem) {
-                    /** @var Node\Expr\ArrayItem $arrayItem */
+                    /** @var Node\ArrayItem $arrayItem */
                     if ($arrayItem->value instanceof Node\Scalar\String_) {
                         $rulesList[] = $arrayItem->value->value;
                     }
